@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zackie Snacks</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <a class="navbar-brand" href=""><%= link_to image_tag("logo-black.png", size: '130x90'), root_path %></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link">Home</a>
+          <a class="nav-item nav-link">Recipes</a>
+          <a class="nav-item nav-link">Add New Recipe</a>
+          <a class="nav-item nav-link">Login</a>
+          <a class="nav-item nav-link">Register</a>
+          <a class="nav-item nav-link">Logout</a>
+        </div>
+      </div>
+    </nav>
+    <%= yield %>
+  </body>
+</html>

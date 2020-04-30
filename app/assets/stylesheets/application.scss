@@ -1,0 +1,24 @@
+@import "bootstrap/scss/bootstrap";
+
+@media (max-width:1700px) and (min-width:1400px) {
+  .banner img {
+    height: 300px;
+  }
+}​
+
+.banner {
+  position: relative;
+}
+
+.banner img {
+  /* Make image responsive */
+  display: block;
+  width: 100%;
+  max-height: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar-brand {
+    display: none !important;
+  }
+}
