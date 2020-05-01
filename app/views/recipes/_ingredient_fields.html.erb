@@ -1,0 +1,36 @@
+<div class="form-group nested-fields col-sm-10">
+  <div class="col-sm-5" style="display: inline-block;">
+    <%= f.label :ingredient %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "Enter ingredient"  %>
+  </div>
+  <div class="col-sm-5" style="display: inline-block;">
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity, class: 'form-control', placeholder: "Enter amount/measurement" %>
+  </div>
+  <%= link_to_remove_association 'Remove', f %>
+</div>
+
+
+<!-- <div class="form-group">
+  <label>
+    <h3>Ingredients</h3>
+  </label>
+  <div *ngFor="let ing of ingredients; let i = index; let last = last; let first = first;" style="margin-bottom: 20px; padding-left: 40px;">
+    <div class="col-sm-4" style="display: inline-block; padding-left: 0px;">
+      <label class="control-label" for="ingredient">Ingredient:</label>
+      <input name="name_{{i}}" [(ngModel)]="ing.name" type="text" class="form-control" placeholder="Enter Ingredient" style="width: 100%;" required>
+    </div>
+    <div class="col-sm-2" style="display: inline-block;">
+      <label class="control-label" for="amount">Amount:</label>
+      <input name="amount_{{i}}" [(ngModel)]="ing.amount"type="text" class="form-control" placeholder="Enter amount" style="width: 100%;" required>
+    </div>
+    <div class="col-sm-3" style="display: inline-block;">
+      <label class="control-label" for="measurement">Measurement:</label>
+      <input name="measurement_{{i}}" [(ngModel)]="ing.measurement" type="text" class="form-control" placeholder="Enter measurement type" style="width: 100%;">
+    </div>
+    <span class="col-sm-1" style="display: inline-block;">
+      <i class="fas fa-plus fa-lg" (click)="addIngredient()" title="Add Ingredient" [hidden]="!last"></i>
+      <i class="fas fa-times fa-lg" (click)="removeIngredient()" title="Add Ingredient" [hidden]="!last || first" style="margin-left: 10px;"></i>
+    </span>
+  </div>
+</div> -->

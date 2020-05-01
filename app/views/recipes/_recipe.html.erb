@@ -1,0 +1,15 @@
+<div class="col-md-4">
+  <div class="card mb-4 box-shadow">
+    <div class="card-body">
+      <p class="card-text">
+        <span><%= recipe.image_url %></span>
+      </p>
+      <p class="card-text">
+        <span><%= recipe.name %></span>
+      </p>
+      <div>
+        <%= button_to "Go To Recipe", recipe_path(recipe), method: :get, class: "btn btn-dark btn-block" %>
+      </div>
+    </div>
+  </div>
+</div>
