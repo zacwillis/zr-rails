@@ -21,6 +21,26 @@ body {
   max-height: auto;
 }
 
+.bg-light {
+  background-color: white !important;
+}
+
+.nav-link {
+  color: black!important;
+}
+
+.active {
+  color: black!important;
+}
+
+.active:after{
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  border-bottom: 3px solid black; 
+}
+
 @media only screen and (max-width: 768px) {
   .nav-image {
     display: none !important;
