@@ -1,9 +1,9 @@
-<div class="py-5">
-  <div class="container">
+<div class="container">
+  <div style="float: right;">
+    <%= button_to 'Add Recipe', new_recipe_path(@product), method: :get, class: 'btn btn-success btn-sm', style: "float: right" %>
+  </div>
+  <div class="py-5">
     <div class="row">
-      <div style="float: right;">
-        <%= link_to 'Add Recipe', new_recipe_path(@product) %>
-      </div>
       <%= render partial: 'recipe', collection: @recipes %>
     </div>
   </div>

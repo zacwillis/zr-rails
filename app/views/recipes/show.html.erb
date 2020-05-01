@@ -26,9 +26,11 @@
       <% end %>
     </div>
     <div class="col-md-6">
-      <div>
-        <%= image_tag @recipe[:image_url], width: '100%', height: '100%' %>
-      </div>
+      <% if @recipe[:image_url] %>
+        <div>
+          <%= image_tag @recipe[:image_url], width: '100%', height: '100%' %>
+        </div>
+      <% end %>
       <div style="margin-top: 10px;">
         <%= button_to "Back To Recipes", recipes_path, method: :get, class: "btn btn-dark btn-sm", style: "float: left" %>
         <%= button_to "Edit Recipe", edit_recipe_path(@recipe), method: :get, class: 'btn btn-warning btn-sm edit-btn' %>
