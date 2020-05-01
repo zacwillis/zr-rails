@@ -9,8 +9,8 @@
 
 
       <% if @recipe[:ingredients] %>
-        <% @recipe[:ingredients].each do |ing| %>
-          <li style="text-indent: 20px;"><%= ing.name %> - <%= ing.quantity %></li>
+        <% for @ingredient in @recipe[:ingredients] %>
+          <li style="text-indent: 20px;"><%= @ingredient.name %> - <%= @ingredient.quantity %></li>
         <% end %>
       <% end %>
 
@@ -20,8 +20,8 @@
       <h4>Instructions</h4>
 
       <% if @recipe[:instructions] %>
-        <% @recipe[:instructions].each do |inst| %>
-          <p style="text-indent: 20px;"><%= inst.step %>.&nbsp;&nbsp; <%= inst.description %></p>
+        <% for @instruction in @recipe[:instructions] %>
+          <p style="text-indent: 20px;"><%= @instruction.step %>.&nbsp;&nbsp; <%= @instruction.description %></p>
         <% end %>
       <% end %>
     </div>

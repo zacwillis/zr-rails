@@ -25,8 +25,23 @@
         <%= link_to_add_association 'Add Ingredient', form, :ingredients, class: "btn btn-success btn-sm" %>
       </div>
     </div>
-    <div class="actions">
-      <%= form.submit 'Save Recipe', class: 'btn btn-primary btn-block'  %>
+  </div>
+
+  <hr>
+
+  <div class="col-md-12">
+    <div>
+      <%= form.fields_for :instructions do |inst| %>
+        <%= render 'instruction_fields', f: inst %>
+      <% end %>
+
+      <div>
+        <%= link_to_add_association 'Add Instruction', form, :instructions, class: "btn btn-success btn-sm" %>
+      </div>
     </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Save Recipe', class: 'btn btn-primary btn-block'  %>
   </div>
 <% end %>
