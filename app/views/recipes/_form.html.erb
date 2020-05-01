@@ -7,17 +7,15 @@
       </div>
 
       <div class="form-group">
-        <label class="btn btn-primary">
+        <label class="btn btn-primary btn-sm">
           Upload Image <%= form.file_field :image_url, style: 'display:none;' %>
         </label>
       </div>
+      <hr class="col-md-6">
     </div>
   </div>
 
-  <hr>
-
   <div class="col-md-12">
-    <h2>Ingredients:</h2>
     <div>
       <%= form.fields_for :ingredients do |ing| %>
         <%= render 'ingredient_fields', f: ing %>
