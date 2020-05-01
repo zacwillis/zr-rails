@@ -10,48 +10,28 @@ class RecipesController < ApplicationController
   end
 
   def create
-    recipe = Recipe.new(params.permit(:name, :image_url))
-    if recipe.valid?
-      begin
-        recipe.save
-        ingredients = params[:ingredients]
-        instructions = params[:instructions]
-        ingredients.each do |ing|
-          Ingredient.create(name: ing["name"], quantity: ing["amount"], measurement_type: ing["measurement"], recipe_id: recipe.id)
-        end
-        instructions.each do |inst|
-          Instruction.create(step: inst["step"], description: inst["description"], recipe_id: recipe.id)
-        end
-        render json: recipe
-      rescue
-        render json: recipe.errors, status: :unprocessable_entity
+    @recipe = Recipe.new(recipe_params)
+
+    respond_to do |format|
+      if @recipe.save
+        format.html { redirect_to recipes_path, notice: 'Recipe was successfully created.' }
+      else
+        format.html { render :new }
       end
     end
   end
 
   def update
-    recipe = Recipe.find(params[:id])
-    recipe.attributes = params.permit(:name)
-    if recipe.valid?
-      begin
-        recipe.save
-        Ingredient.where(recipe_id: recipe.id).destroy_all
-        Instruction.where(recipe_id: recipe.id).destroy_all
-        ingredients = params[:ingredients]
-        instructions = params[:instructions]
-        ingredients.each do |ing|
-          Ingredient.create(name: ing["name"], quantity: ing["quantity"], measurement_type: ing["measurement_type"], recipe_id: recipe.id)
-        end
-        instructions.each do |inst|
-          Instruction.create(step: inst["step"], description: inst["description"], recipe_id: recipe.id)
-        end
-        render json: recipe
-      rescue
-        render json: {status: "error", message: "Invalid recipe parameters."}
+    respond_to do |format|
+      if @recipe.update(recipe_params)
+        format.html { redirect_to recipes_path, notice: 'Recipe was successfully updated.' }
+      else
+        format.html { render :edit }
       end
-    else
-      render json: recipe.errors, status: :unprocessable_entity
     end
+  end
+
+  def edit
   end
 
   def show
@@ -60,15 +40,20 @@ class RecipesController < ApplicationController
     @recipe[:name] = rp.name
     @recipe[:id] = rp.id
     @recipe[:image_url] = rp.image_url
-    @recipe[:ingredients] = Ingredient.where(recipe_id: rp.id).select(:name, :quantity)
+    @recipe[:ingredients] = Ingredient.where(recipe_id: rp.id).select(:name, :quantity).order(:id)
     @recipe[:instructions] = Instruction.where(recipe_id: rp.id).select(:step, :description)
     @recipe
   end
 
-  def destroy
-    recipe = Recipe.find(params[:id])
-    recipe.destroy
-    render json: recipe
+   def destroy
+    # perform the lookup
+    # destroy/delete the record
+    @recipe.destroy
+
+    # Redirect
+    respond_to do |format|
+      format.html { redirect_to recipes_url, notice: 'Recipe was successfully deleted.' }
+    end
   end
 
   private

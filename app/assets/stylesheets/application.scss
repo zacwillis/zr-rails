@@ -4,9 +4,13 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+.recipe-show-name {
+  font-family: 'Montserrat', sans-serif;
+}
+
 @media (max-width:1700px) and (min-width:1400px) {
   .banner img {
-    height: 300px;
+    height: 350px;
   }
 }​
 
@@ -45,4 +49,9 @@ body {
   .nav-image {
     display: none !important;
   }
+}
+
+.edit-btn {
+  float: left;
+  margin-left: 10px;
 }
