@@ -1,5 +1,8 @@
 <div class="container">
   <h3>Create a new Recipe</h3>
+  <div style="margin-top: 10px; float: right;">
+    <%= button_to 'Cancel', recipes_path, method: :get, class: "btn btn-warning btn-sm" %>
+  </div>
 
   <%= render 'form', recipe: @recipe %>
 </div>
