@@ -11,37 +11,36 @@
           Upload Image <%= form.file_field :image_url, style: 'display:none;' %>
         </label>
       </div>
-      <hr class="col-md-6">
     </div>
   </div>
 
-  <div class="col-md-12">
-    <div>
-      <%= form.fields_for :ingredients do |ing| %>
-        <%= render 'ingredient_fields', f: ing %>
-      <% end %>
-
+  <div class="row col-md-12">
+    <div class="col-md-6">
       <div>
-        <%= link_to_add_association 'Add Ingredient', form, :ingredients, class: "btn btn-success btn-sm" %>
+        <%= form.fields_for :ingredients do |ing| %>
+          <%= render 'ingredient_fields', f: ing %>
+        <% end %>
+
+        <div>
+          <%= link_to_add_association 'Add Ingredient', form, :ingredients, class: "btn btn-success btn-sm" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div>
+        <%= form.fields_for :instructions do |inst| %>
+          <%= render 'instruction_fields', f: inst %>
+        <% end %>
+
+        <div>
+          <%= link_to_add_association 'Add Instruction', form, :instructions, class: "btn btn-success btn-sm" %>
+        </div>
       </div>
     </div>
   </div>
 
-  <hr>
-
-  <div class="col-md-12">
-    <div>
-      <%= form.fields_for :instructions do |inst| %>
-        <%= render 'instruction_fields', f: inst %>
-      <% end %>
-
-      <div>
-        <%= link_to_add_association 'Add Instruction', form, :instructions, class: "btn btn-success btn-sm" %>
-      </div>
-    </div>
-  </div>
-
-  <div class="actions">
+  <div class="actions" style="margin-top: 20px;">
     <%= form.submit 'Save Recipe', class: 'btn btn-primary btn-block'  %>
   </div>
 <% end %>
