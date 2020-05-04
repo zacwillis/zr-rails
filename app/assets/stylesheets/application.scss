@@ -49,9 +49,19 @@ body {
   .nav-image {
     display: none !important;
   }
+  .remove-btn {
+    margin: 10px 0px 0px 15px;
+  }
+  .add_fields {
+    margin-bottom: 20px;
+  }
 }
 
 .edit-btn {
   float: left;
   margin-left: 10px;
+}
+
+.add_fields {
+  margin-left: 30px;
 }

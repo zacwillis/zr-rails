@@ -1,11 +1,13 @@
 <div class="form-group nested-fields col-sm-12">
-  <div class="col-sm-2" style="display: inline-block;">
-    <%= f.label :step %>
-    <%= f.text_field :step, class: 'form-control', placeholder: "Step"  %>
+  <%= link_to_remove_association 'Remove', f, class: "btn btn-danger btn-sm", style: "float: right; margin-top: 30px;" %>
+  <div class="row">
+    <div class="col-md-2 col-sm-4" style="display: inline-block;">
+      <%= f.label :step %>
+      <%= f.text_field :step, class: 'form-control' %>
+    </div>
+    <div class="col-md-10 col-sm-8" style="display: inline-block;">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control', placeholder: "Enter description", rows: 5 %>
+    </div>
   </div>
-  <div class="col-sm-8" style="display: inline-block;">
-    <%= f.label :description %>
-    <%= f.text_area :description, class: 'form-control', placeholder: "Enter description", rows: 5 %>
-  </div>
-  <%= link_to_remove_association 'Remove', f, class: "btn btn-danger btn-sm" %>
 </div>
