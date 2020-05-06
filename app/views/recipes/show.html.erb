@@ -28,7 +28,7 @@
     <div class="col-md-6">
       <% if @recipe[:image_url] %>
         <div>
-          <%= image_tag @recipe[:image_url], width: '100%', height: '100%' %>
+          <%= image_tag @recipe[:image_url].to_s, width: '100%', height: '100%' %>
         </div>
       <% end %>
       <div style="margin-top: 10px;">

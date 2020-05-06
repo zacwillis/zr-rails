@@ -1,7 +1,8 @@
 class RecipeUploader < CarrierWave::Uploader::Base
-  storage :file
+  storage :aws
+
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "#{Rails.env}"
   end
 
   # Process files as they are uploaded:
