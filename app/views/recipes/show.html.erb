@@ -33,8 +33,8 @@
       <% end %>
       <div style="margin-top: 10px;">
         <%= button_to "Back To Recipes", recipes_path, method: :get, class: "btn btn-dark btn-sm", style: "float: left" %>
-        <%= button_to "Edit Recipe", edit_recipe_path(@recipe), method: :get, class: 'btn btn-warning btn-sm edit-btn' %>
-        <%= link_to "Delete Recipe", @recipe, method: :delete, data: { confirm: 'Are you sure you want to delete this post?' }, class: 'btn btn-danger btn-sm edit-btn' %>
+        <%= button_to "Edit Recipe", edit_recipe_path(@recipe), method: :get, class: 'btn btn-warning btn-sm edit-btn' if logged_in?(:admin) %>
+        <%= link_to "Delete Recipe", @recipe, method: :delete, data: { confirm: 'Are you sure you want to delete this post?' }, class: 'btn btn-danger btn-sm edit-btn' if logged_in?(:admin) %>
       </div>
     </div>
   </div>

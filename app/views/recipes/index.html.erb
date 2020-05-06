@@ -1,6 +1,6 @@
 <div class="container">
   <div style="float: right;">
-    <%= button_to 'Add Recipe', new_recipe_path(@product), method: :get, class: 'btn btn-success btn-sm', style: "float: right" %>
+    <%= button_to 'Add Recipe', new_recipe_path(@product), method: :get, class: 'btn btn-success btn-sm', style: "float: right" if logged_in?(:admin) %>
   </div>
   <div class="py-5">
     <div class="row">
