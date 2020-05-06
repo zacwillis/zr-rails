@@ -5,12 +5,14 @@
       <hr style="margin-top: 8px;">
       <br>
 
-      <h5>Ingredients</h5>
+      <h4>Ingredients</h4>
 
 
       <% if @recipe[:ingredients] %>
         <% for @ingredient in @recipe[:ingredients] %>
-          <li style="text-indent: 20px;"><%= @ingredient.name %> - <%= @ingredient.quantity %></li>
+          <ul>
+            <li><%= @ingredient.name %> - <%= @ingredient.quantity %></li>
+          </ul>
         <% end %>
       <% end %>
 
@@ -21,7 +23,9 @@
 
       <% if @recipe[:instructions] %>
         <% for @instruction in @recipe[:instructions] %>
-          <p style="text-indent: 20px;"><%= @instruction.step %>.&nbsp;&nbsp; <%= @instruction.description %></p>
+          <ul style="list-style-type:none; padding-left: 20px !important; list-style-position: outside;">
+            <li><%= @instruction.step %>.&nbsp; <%= @instruction.description %></li>
+          </ul>
         <% end %>
       <% end %>
     </div>
