@@ -1,6 +1,6 @@
 CarrierWave.configure do |config|
   config.storage    = :aws
-  config.aws_bucket = 'zackie-snacks-recipes' # for AWS-side bucket access permissions config, see section below
+  config.aws_bucket = Rails.application.credentials[:aws][:bucket] # for AWS-side bucket access permissions config, see section below
   config.aws_acl    = 'public-read'
 
   # The maximum period for authenticated_urls is only 7 days.
