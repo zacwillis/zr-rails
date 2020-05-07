@@ -8,9 +8,37 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-@media (max-width:1700px) and (min-width:1400px) {
+@media (max-width:1199px) and (min-width:992px) {
+  .card-img-top {
+    height: auto;
+    max-height: 216px;
+    object-fit: cover;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .card-img-top {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width:991px) and (min-width:768px) {
+  .card-img-top {
+    height: auto;
+    max-height: 156px;
+    object-fit: cover;
+  }
+}
+
+@media (max-width:1700px) and (min-width:1200px) {
   .banner img {
     height: 350px;
+  }
+  .card-img-top {
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
   }
 }​
 
