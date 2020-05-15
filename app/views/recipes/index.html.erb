@@ -5,7 +5,6 @@
         <%= text_field_tag :search, nil, class: 'form-control col-sm-3', placeholder: "Search.." %>
         <span class="input-group-append">
           <%= submit_tag ("Search"), class: 'btn btn-success' %>
-          <%= button_to "Back To Recipes", recipes_path, method: :get, class: 'btn btn-warning' %>
         </span>
       </div>
     <% end %>
@@ -13,12 +12,15 @@
   <div style="float: right;">
     <%= button_to 'Add Recipe', new_recipe_path(@product), method: :get, class: 'btn btn-success btn-sm', style: "float: right" if logged_in?(:admin) %>
   </div>
+  <% if @recipes.length == 0 %>
+    <h3 style="margin-top: 20px;">No recipes match your search..</h3>
+    <div>
+      <%= button_to 'Back To Recipes', recipes_path, method: :get, class: "btn btn-sm btn-primary", style: "margin-top: 10px;" %>
+    </div>
+  <% end %>
   <div class="py-5">
     <div class="row">
       <%= render partial: 'recipe', collection: @recipes if @recipes.length > 0%>
-      <% if @recipes.length == 0 %>
-        <h3>No recipes match your search..</h3>
-      <% end %>
     </div>
   </div>
 </div>
