@@ -4,6 +4,11 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.search(params[:search])
+    if params[:search]
+      @searched = true
+    else
+      @searched = false
+    end
   end
 
   def new
