@@ -5,4 +5,12 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :instructions, reject_if: :all_blank, allow_destroy: true
 
   mount_uploader :image_url, RecipeUploader
+
+  def self.search(search_param)
+    if search_param
+      recipe = Recipe.where("name Ilike ?", "%" + search_param + "%").order(:id)
+    else
+      Recipe.all.order(:id)
+    end
+  end
 end

@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, admin: :all
 
   def index
-    @recipes = Recipe.all.order(:id)
+    @recipes = Recipe.search(params[:search])
   end
 
   def new
@@ -63,7 +63,7 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-      params.require(:recipe).permit(:name, :image_url, ingredients_attributes: [:id, :name, :quantity, :_destroy], instructions_attributes: [:id, :step, :description, :_destroy])
+      params.require(:recipe).permit(:name, :image_url, :search, ingredients_attributes: [:id, :name, :quantity, :_destroy], instructions_attributes: [:id, :step, :description, :_destroy])
       
     end
 end
